@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <title>Programacion concurrete y distribuida</title>
+</head>
+
+<body class="">
+  <!-- <section>
+<div class=" max-w-7xl mt-10  mx-auto px-4  ">
+
+  <div class="flex justify-center items-center flex-col space-y-4  ">
+    <h4 class=" text-3xl"> Una aplicación web para determinar el sexo de la mayoría de un grupo de edad infectado con covid usando el algoritmo KNN</h4>
+    <p>Uso: Propósito estadístico</p>
+  </div>
+  <form id="predict" class=" flex flex-col space-y-4 border-solid border-4">
+    <label class="inline-flex items-center" for="age">edad</label>
+    <input type="number" name="age" id="age">
+    <br> <br> 
+    <label for="cases">Numero de casos</label>
+    <input type="number" name="cases" id="cases">
+    
+    <p class="text-2xl">KNN parametros</p>
+    <label for="k">K Vecinos mas cercanos a cosiderar</label>
+    <input type="number" name="k" id="k">
+    <br> <br>
+    <button id="submit" type="submit">Predecir</button>
+  </form>
+  
+  <p class="result" style="color:green"></p>
+</div>
+</section> -->
+<img class="absolute z-10 right-0 bottom-0  md:h-1/3 lg:h-1/2 " src="img/123-1230348_january-clipart-jumping-doofenshmirtz-phineas-y-ferb-png.png" alt="">
+
+  <div class="font-sans">
+    <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+      <div class="relative sm:max-w-sm w-full">
+        <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+        <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+        <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+          <label for="" class="block mt-3 text-xl text-black text-center font-semibold">
+            KNN Sex predictor covid cases base on age
+          </label>
+          <form id="predict" method="#" action="#" class="mt-10">
+
+            <label for="age" class="text-base font-medium ">Edad</label>
+            <div>
+              <input required type="number" id="age" placeholder="1-90 años"
+                class=" text-center mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+            </div>
+
+            <div class="mt-7">
+              <label for="cases" class="text-base font-medium">Casos</label>
+              <input required type="number" id="cases" placeholder="1-10000 casos"
+                class=" text-center mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+            </div>
+
+            <h1 for="" class="mt-10 block mt-3 text-xl text-black text-center font-semibold">
+              Parámetro KNN
+            </h1>
+            <div class="mt-7">
+              <label for="k" class="text-base font-medium">K Vecinos mas cercanos a cosiderar</label>
+              <input required type="number" id="k" placeholder="1-3-5-7-11 vecinos"
+                class=" text-center mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+            </div>
+
+            <div class="mt-7">
+              <button id="submit" type="submit"
+                class="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                Predecir
+              </button>
+            </div>
+
+            <div class="flex items-center justify-center mt-4 py-2  rounded-xl ">
+              <p class="result text-green-500 text-xl "></p>
+            </div>
+
+
+            <div class="mt-7">
+              <div class="flex justify-center items-center">
+                <label class="mr-2">¿Como funciona??</label>
+                <a href="#info"
+                  class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                  Información
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="info" class="bg-gray-100 py-5">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col justify-center items-center">
+      <div class="flex items-center jutify-center font-sans max-w-2xl transform hover:scale-105  ">
+        <div class="flex flex-col justify-center items-center text-center shadow-xl rounded-xl py-10 space-y-2 px-4">
+          <h1 class="text-3xl">Instrucciones</h1>
+          <p class="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis porro quia reprehenderit
+            ipsam excepturi. Non officia doloribus laborum dolorem perferendis fugiat corrupti. Laboriosam, repellat
+            nisi fuga vero cum illo nemo. </p>
+          <label for="" class="font-bold mt-10"> Link del dataset</label>
+          <a href="https://raw.githubusercontent.com/Lutimi/dataset/master/pm_ener_2021.csv"
+            class=" px-4 mt-8 bg-gray-400 rounded-xl " target="_blank">
+            data set
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+</body>
+
+<script>
+
+  let predict = document.querySelector('#predict');
+  let result = document.querySelector('.result');
+
+  var serializeForm = function (form) {
+    var obj = {};
+    var formData = new FormData(form);
+    for (var key of formData.keys()) {
+      obj[key] = formData.get(key);
+    }
+    return obj;
+  };
+
+
+
+
+  document.addEventListener('submit', function (event) {
+
+    event.preventDefault();
+    let age = $('#age').val();
+    let cases = $('#cases').val();
+    let k = $('#k').val();
+    if (age < 0 || age > 90) {
+      alert('Edad fuera de rango');
+      return;
+    } 
+    else if (cases > 10000 || cases == null) {
+
+      alert('Numero de casos fuera de rango del data set!');
+      return;
+    }
+    // } else if (k % 2 == 0 || k == null){
+    //   alert("Elije un numero impar para un calculo mas preciso!");
+    //   return;
+    // }
+    fetch('http://localhost:3000/predict', {
+      method: 'POST',
+      body: JSON.stringify(serializeForm(predict)),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    }).then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    }).then(function (data) {
+      result.innerHTML = "El genero esperado es: " + data.gender_class;
+    }).catch(function (error) {
+      console.warn(error);
+    });
+  });
+
+</script>
+
+</html>
