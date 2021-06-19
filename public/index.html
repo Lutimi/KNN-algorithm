@@ -12,31 +12,9 @@
 </head>
 
 <body class="">
-  <!-- <section>
-<div class=" max-w-7xl mt-10  mx-auto px-4  ">
 
-  <div class="flex justify-center items-center flex-col space-y-4  ">
-    <h4 class=" text-3xl"> Una aplicación web para determinar el sexo de la mayoría de un grupo de edad infectado con covid usando el algoritmo KNN</h4>
-    <p>Uso: Propósito estadístico</p>
-  </div>
-  <form id="predict" class=" flex flex-col space-y-4 border-solid border-4">
-    <label class="inline-flex items-center" for="age">edad</label>
-    <input type="number" name="age" id="age">
-    <br> <br> 
-    <label for="cases">Numero de casos</label>
-    <input type="number" name="cases" id="cases">
-    
-    <p class="text-2xl">KNN parametros</p>
-    <label for="k">K Vecinos mas cercanos a cosiderar</label>
-    <input type="number" name="k" id="k">
-    <br> <br>
-    <button id="submit" type="submit">Predecir</button>
-  </form>
-  
-  <p class="result" style="color:green"></p>
-</div>
-</section> -->
-<img class="absolute z-10 right-0 bottom-0  md:h-1/3 lg:h-1/2 " src="img/123-1230348_january-clipart-jumping-doofenshmirtz-phineas-y-ferb-png.png" alt="">
+  <img class="absolute z-10 right-0 bottom-0  md:h-1/3 lg:h-1/2 "
+    src="img/123-1230348_january-clipart-jumping-doofenshmirtz-phineas-y-ferb-png.png" alt="">
 
   <div class="font-sans">
     <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
@@ -45,7 +23,7 @@
         <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
         <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
           <label for="" class="block mt-3 text-xl text-black text-center font-semibold">
-            KNN Sex predictor covid cases base on age
+            KNN Sex Predictor
           </label>
           <form id="predict" method="#" action="#" class="mt-10">
 
@@ -103,9 +81,20 @@
       <div class="flex items-center jutify-center font-sans max-w-2xl transform hover:scale-105  ">
         <div class="flex flex-col justify-center items-center text-center shadow-xl rounded-xl py-10 space-y-2 px-4">
           <h1 class="text-3xl">Instrucciones</h1>
-          <p class="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis porro quia reprehenderit
-            ipsam excepturi. Non officia doloribus laborum dolorem perferendis fugiat corrupti. Laboriosam, repellat
-            nisi fuga vero cum illo nemo. </p>
+          <p class="text-center"> Para esto se le pedirá al usuario que ingrese la cantidad de casos COVID positivos, la
+            edad y la
+            cantidad de vecinos(Preferentemente número impar) con respecto a la incógnita para poder predecir su sexo.
+          </p>
+
+          <img src="img/Group 53.png" alt="">
+          <label for="" class="font-bold mt-10">Por que tu variable "K" no deberia ser un numero impar</label>
+          <p class="text-center"> Existe la posibilidad que los vecinos de la variable desconocida sean 2 hombre y 2
+            mujeres lo cual tomaria cualquiera de los 2
+            y no seria un calculo preciso
+          </p>
+
+          <img src="img/Group 52.png" alt="">
+
           <label for="" class="font-bold mt-10"> Link del dataset</label>
           <a href="https://raw.githubusercontent.com/Lutimi/dataset/master/pm_ener_2021.csv"
             class=" px-4 mt-8 bg-gray-400 rounded-xl " target="_blank">
@@ -148,16 +137,23 @@
     if (age < 0 || age > 90) {
       alert('Edad fuera de rango');
       return;
-    } 
-    else if (cases > 10000 || cases == null) {
+    }
+    else if (cases > 5000 || cases == null) {
 
       alert('Numero de casos fuera de rango del data set!');
       return;
     }
+    // Try to use an equal number in order to avoid not precized results
     // } else if (k % 2 == 0 || k == null){
-    //   alert("Elije un numero impar para un calculo mas preciso!");
+    //   alert("Elije un numero impar para un calculo mas precisoo!");
     //   return;
     // }
+
+    async function fetchpredictJSON() {
+      const response = await fetch('/predict');
+      const predict = await response.json();
+      return predict;
+    }
     fetch('http://localhost:3000/predict', {
       method: 'POST',
       body: JSON.stringify(serializeForm(predict)),

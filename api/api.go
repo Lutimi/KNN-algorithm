@@ -72,7 +72,7 @@ func Predict(w http.ResponseWriter, r *http.Request) {
 	if class == 0 {
 		testData.GenderClass = "Hombre"
 	} else {
-		testData.GenderClass = "Cocinera"
+		testData.GenderClass = "Mujer"
 	}
 	//return JSON encoded data
 	json.NewEncoder(w).Encode(testData)

@@ -1,11 +1,14 @@
 package main
 
 import (
+	// my api
 	"knn-golang/api"
 	"log"
+	// Package http provides HTTP client and server implementations. Get, Head, Post, and PostForm make HTTP (or HTTPS) requests:
 	"net/http"
-
+	// Package gorilla/mux implements a request router and dispatcher for matching incoming requests to their respective handler.
 	"github.com/gorilla/mux"
+	// Allow * With Credentials Security Protection
 	"github.com/rs/cors"
 )
 

@@ -3,6 +3,7 @@ package data
 import (
 	"encoding/csv"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -32,7 +33,7 @@ func downloadDataset() error {
 	}
 	defer resp.Body.Close()
 
-	//check if downloaded ok
+	//check if downloaded ok status code
 	if resp.StatusCode != 200 {
 		return errors.New("received non 200 response code fetching dataset")
 	}
@@ -195,6 +196,9 @@ func cleanupDataset() (error, [][]float64) {
 		//and add it to the slice of slices
 		totalData = append(totalData, temp)
 	}
+
+	// Print all the data
+	fmt.Println(totalData)
 
 	// now we have a 2D matrix
 	// [[age, nr of cases, gender]

@@ -75,6 +75,7 @@ func euclideanDistance(row1, row2 []float64) (distance float64) {
 	//in this case points are age_group and cases
 	// (x1-x2)^2 + (y1-y2)^2 + ... and so on
 	// square root on the total
+	//towardsdatascience.com/knn-k-nearest-neighbors-1-a4707b24bd1d
 	for i, _ := range row2 {
 		distance += math.Pow((row1[i] - row2[i]), 2)
 	}
